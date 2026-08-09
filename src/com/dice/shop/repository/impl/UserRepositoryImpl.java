@@ -12,28 +12,52 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void save(User user) {
+        List<User> users = findAll();
+        users.add(user);
+        SerializationUtil.serialize(users, FILE_PATH);
     }
 
     @Override
     public List<User> findAll() {
-        return null;
+        try {
+            return (List<User>) SerializationUtil.deserialize(FILE_PATH);
+        } catch (RuntimeException e) {
+            return new ArrayList<>();
+        }
     }
 
     @Override
     public User findById(Long id) {
-        return null;
+        return findAll()
+                .stream()
+                .filter(user -> user.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
     public User findByLogin(String login) {
-        return null;
+        return findAll()
+                .stream()
+                .filter(user -> user.getLogin().equals(login))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
     public void update(User user) {
+        List<User> users = findAll();
+        users.removeIf(existingUser ->
+                existingUser.getId().equals(user.getId()));
+        users.add(user);
+        SerializationUtil.serialize(users, FILE_PATH);
     }
 
     @Override
     public void delete(Long id) {
+        List<User> users = findAll();
+        users.removeIf(user ->
+                user.getId().equals(id));
+        SerializationUtil.serialize(users, FILE_PATH);
     }
 }
