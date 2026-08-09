@@ -1,7 +1,7 @@
 package com.dice.shop.service;
 
-import com.dice.shop.entity.good.Good;
-import com.dice.shop.entity.good.ProductCategory;
+import com.dice.shop.entity.Good;
+import com.dice.shop.entity.ProductCategory;
 import com.dice.shop.repository.GoodRepository;
 import java.util.List;
 import com.dice.shop.exception.GoodNotFoundException;

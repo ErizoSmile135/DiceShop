@@ -1,6 +1,6 @@
 package com.dice.shop.repository;
-import com.dice.shop.entity.good.Good;
-import com.dice.shop.entity.good.ProductCategory;
+import com.dice.shop.entity.Good;
+import com.dice.shop.entity.ProductCategory;
 
 import java.util.List;
 

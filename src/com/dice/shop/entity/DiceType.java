@@ -1,4 +1,4 @@
-package com.dice.shop.entity.good;
+package com.dice.shop.entity;
 
 public enum DiceType {
 

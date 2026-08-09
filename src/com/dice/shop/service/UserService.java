@@ -27,6 +27,19 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void registerAdmin(User user) {
+        if (userRepository.findByLogin(user.getLogin()) != null) {
+            throw new UserAlreadyExistsException(
+                    "Пользователь с таким логином уже существует"
+            );
+        }
+
+        user.setId(generateId());
+        user.setRole(Role.ADMIN);
+
+        userRepository.save(user);
+    }
+
     public List<User> findAll() {
         return userRepository.findAll();
     }

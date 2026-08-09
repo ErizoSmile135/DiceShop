@@ -1,7 +1,7 @@
 package com.dice.shop.repository.impl;
 
-import com.dice.shop.entity.good.Good;
-import com.dice.shop.entity.good.ProductCategory;
+import com.dice.shop.entity.Good;
+import com.dice.shop.entity.ProductCategory;
 import com.dice.shop.repository.GoodRepository;
 import com.dice.shop.util.SerializationUtil;
 import java.util.ArrayList;

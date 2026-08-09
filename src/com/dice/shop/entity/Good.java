@@ -1,4 +1,4 @@
-package com.dice.shop.entity.good;
+package com.dice.shop.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -21,16 +21,15 @@ public class Good implements Serializable {
     private DiceType diceType;
     // Пластик, металл и т.д.
     private Material material;
+    // Цена
     private double price;
-    // Возрастное ограничение
-    private int ageRestriction;
 
     public Good() {
     }
 
     public Good(Long id, String name, String code, String brand,
                 ProductCategory category, DiceType diceType,
-                Material material, double price, int ageRestriction) {
+                Material material, double price) {
         this.id = id;
         this.name = name;
         this.code = code;
@@ -39,9 +38,7 @@ public class Good implements Serializable {
         this.diceType = diceType;
         this.material = material;
         this.price = price;
-        this.ageRestriction = ageRestriction;
     }
-
 
     public Long getId() {
         return id;
@@ -51,7 +48,6 @@ public class Good implements Serializable {
         this.id = id;
     }
 
-
     public String getName() {
         return name;
     }
@@ -59,7 +55,6 @@ public class Good implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public String getCode() {
         return code;
@@ -69,7 +64,6 @@ public class Good implements Serializable {
         this.code = code;
     }
 
-
     public String getBrand() {
         return brand;
     }
@@ -77,7 +71,6 @@ public class Good implements Serializable {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-
 
     public ProductCategory getCategory() {
         return category;
@@ -87,7 +80,6 @@ public class Good implements Serializable {
         this.category = category;
     }
 
-
     public DiceType getDiceType() {
         return diceType;
     }
@@ -95,7 +87,6 @@ public class Good implements Serializable {
     public void setDiceType(DiceType diceType) {
         this.diceType = diceType;
     }
-
 
     public Material getMaterial() {
         return material;
@@ -105,7 +96,6 @@ public class Good implements Serializable {
         this.material = material;
     }
 
-
     public double getPrice() {
         return price;
     }
@@ -113,16 +103,6 @@ public class Good implements Serializable {
     public void setPrice(double price) {
         this.price = price;
     }
-
-
-    public int getAgeRestriction() {
-        return ageRestriction;
-    }
-
-    public void setAgeRestriction(int ageRestriction) {
-        this.ageRestriction = ageRestriction;
-    }
-
 
     @Override
     public String toString() {
@@ -135,10 +115,8 @@ public class Good implements Serializable {
                 ", diceType=" + diceType +
                 ", material=" + material +
                 ", price=" + price +
-                ", ageRestriction=" + ageRestriction +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -146,7 +124,6 @@ public class Good implements Serializable {
         if (!(o instanceof Good good)) return false;
         return Objects.equals(id, good.id);
     }
-
 
     @Override
     public int hashCode() {

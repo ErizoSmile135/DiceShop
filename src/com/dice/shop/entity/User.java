@@ -98,6 +98,13 @@ public class User implements Serializable {
                 ", birthDate=" + birthDate +
                 ", role=" + role +
                 '}';
+        //Для красоты можно было бы, но решил оставить для наглядности стандартный вид. И в консоли удобнее списком, чем столбцы
+        /*return "id: " + id +
+                "\nlogin: " + login +
+                "\nfirstname: " + firstname +
+                "\nlastname: " + lastname +
+                "\nbirthDate: " + birthDate +
+                "\nrole: " + role;*/
     }
 
     @Override
