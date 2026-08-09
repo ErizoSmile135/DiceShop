@@ -1,5 +1,7 @@
 package com.dice.shop.repository;
-import com.dice.shop.entity.Good;
+import com.dice.shop.entity.good.Good;
+import com.dice.shop.entity.good.ProductCategory;
+
 import java.util.List;
 
 public interface GoodRepository {
@@ -10,7 +12,7 @@ public interface GoodRepository {
 
     Good findById(Long id);
 
-    List<Good> findByCategory(String category);
+    List<Good> findByCategory(ProductCategory category);
 
     void update(Good good);
 

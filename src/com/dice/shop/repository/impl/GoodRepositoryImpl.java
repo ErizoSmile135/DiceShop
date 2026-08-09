@@ -1,6 +1,7 @@
 package com.dice.shop.repository.impl;
 
-import com.dice.shop.entity.Good;
+import com.dice.shop.entity.good.Good;
+import com.dice.shop.entity.good.ProductCategory;
 import com.dice.shop.repository.GoodRepository;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class GoodRepositoryImpl implements GoodRepository {
     }
 
     @Override
-    public List<Good> findByCategory(String category) { //ProductCategory category
+    public List<Good> findByCategory(ProductCategory category) {
         return null;
     }
 
