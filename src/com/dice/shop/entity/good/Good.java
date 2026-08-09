@@ -1,34 +1,29 @@
 package com.dice.shop.entity.good;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class Good implements Serializable {
 
+    @Serial
+    private static final long serialVersionUID = 2098331790892087285L;
+
     private Long id;
-
     private String name;
-
     // Артикул товара
     private String code;
-
     // Производитель
     private String brand;
-
     // Набор или отдельный кубик
     private ProductCategory category;
-
     // d4, d6, d20 и т.д.
     private DiceType diceType;
-
     // Пластик, металл и т.д.
     private Material material;
-
     private double price;
-
     // Возрастное ограничение
     private int ageRestriction;
-
 
     public Good() {
     }

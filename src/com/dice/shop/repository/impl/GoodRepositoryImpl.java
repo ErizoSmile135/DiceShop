@@ -20,11 +20,11 @@ public class GoodRepositoryImpl implements GoodRepository {
 
     @Override
     public List<Good> findAll() {
-        try {
-            return (List<Good>) SerializationUtil.deserialize(FILE_PATH);
-        } catch (RuntimeException e) {
+        List<Good> goods = SerializationUtil.deserialize(FILE_PATH);
+        if (goods == null) {
             return new ArrayList<>();
         }
+        return goods;
     }
 
     @Override
