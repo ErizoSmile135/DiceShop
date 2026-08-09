@@ -1,13 +1,16 @@
-package com.dice.shop.entity;
+package com.dice.shop.entity.good;
 
-public enum Role {
+public enum Material {
 
-    ADMIN("Администратор"),
-    CLIENT("Клиент");
+    PLASTIC("Пластик"),
+    METAL("Металл"),
+    RESIN("Смола"),
+    STONE("Камень"),
+    WOOD("Дерево");
 
     private final String description;
 
-    Role(String description) {
+    Material(String description) {
         this.description = description;
     }
 

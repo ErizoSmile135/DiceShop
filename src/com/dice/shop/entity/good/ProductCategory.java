@@ -1,13 +1,13 @@
-package com.dice.shop.entity;
+package com.dice.shop.entity.good;
 
-public enum Role {
+public enum ProductCategory {
 
-    ADMIN("Администратор"),
-    CLIENT("Клиент");
+    SET("Набор кубиков"),
+    SINGLE("Одиночный кубик");
 
     private final String description;
 
-    Role(String description) {
+    ProductCategory(String description) {
         this.description = description;
     }
 
