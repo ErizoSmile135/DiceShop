@@ -1,6 +1,7 @@
 package com.dice.shop.controller;
 
 import com.dice.shop.entity.User;
+import com.dice.shop.exception.AuthenticationException;
 import com.dice.shop.service.AuthService;
 import com.dice.shop.service.UserService;
 import java.time.LocalDate;
@@ -79,6 +80,7 @@ public class UserController {
         try {
             //пустую или пробелы чек
             if (dateInput.isBlank()) {
+                System.out.println("Неверный формат даты. Установлена текущая дата.");
                 birthDate = LocalDate.now();
             } else {
                 birthDate = LocalDate.parse(dateInput);
@@ -116,6 +118,10 @@ public class UserController {
         if (result) {
             System.out.println("Вход выполнен");
         } else {
+            //Не знаю, он будет при ексепшн выкидывать... Мб лучше по кругу его водить пока правильный пароль не вспомнит
+            /*throw new AuthenticationException(
+                    "Неверный логин или пароль"
+            );*/
             System.out.println("Неверный логин или пароль");
         }
     }
@@ -125,6 +131,32 @@ public class UserController {
 
         userService.findAll()
                 .forEach(System.out::println);
+
+        System.out.println("\n1. Найти пользователя по логину");
+        System.out.println("0. Выход");
+
+        System.out.print("\nВаш выбор: ");
+        String choice = scanner.nextLine();
+
+        switch (choice) {
+            case "1":
+                System.out.print("\nВведите логин: ");
+                String login = scanner.nextLine();
+                User user = userService.findByLogin(login);
+
+                if (user == null) {
+                    System.out.println("Пользователь с таким логином не найден");
+                } else {
+                    System.out.println("Пользователь найден:");
+                    System.out.println(user);
+                }
+                break;
+            case "0":
+                //showUserMenu();       //он сам отсюда выпадет
+                break;
+            default:
+                System.out.println("Неверный выбор");
+        }
     }
 
     public void profile(User user) {
@@ -151,6 +183,7 @@ public class UserController {
         try {
             //пустую или пробелы чек
             if (dateInput.isBlank()) {
+                System.out.println("Неверный формат даты. Установлена текущая дата.");
                 birthDate = LocalDate.now();
             } else {
                 birthDate = LocalDate.parse(dateInput);

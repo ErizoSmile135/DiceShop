@@ -135,15 +135,24 @@ public class GoodController {
         System.out.print("Новый бренд: ");
         String brand = scanner.nextLine();
 
-        System.out.print("Новая цена: ");
-        double price = Double.parseDouble(scanner.nextLine());
+        ProductCategory category = selectCategory();
+        good.setCategory(category);
+
+        if(category == ProductCategory.SINGLE){
+            good.setDiceType(selectDiceType());
+        } else if(category == ProductCategory.SET){
+            good.setDiceType(DiceType.SET);
+        }
 
         good.setName(name);
         good.setCode(code);
         good.setBrand(brand);
-        good.setPrice(price);
-        good.setCategory(selectCategory());
+        good.setCategory(category);
         good.setMaterial(selectMaterial());
+
+        System.out.print("Новая цена: ");
+        double price = Double.parseDouble(scanner.nextLine());
+        good.setPrice(price);
 
         goodService.update(good);
 

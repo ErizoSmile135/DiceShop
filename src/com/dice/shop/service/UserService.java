@@ -44,10 +44,6 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findById(Long id) {
-        return userRepository.findById(id);
-    }
-
     public User findByLogin(String login) {
         return userRepository.findByLogin(login);
     }
@@ -61,14 +57,15 @@ public class UserService {
         userRepository.update(user);
     }
 
-    public void delete(Long id) {
+    //не применил
+    /*public void delete(Long id) {
         if (userRepository.findById(id) == null) {
             throw new UserNotFoundException(
                     "Пользователь с id " + id + " не найден"
             );
         }
         userRepository.delete(id);
-    }
+    }*/
 
     private Long generateId() {
         return userRepository.findAll()

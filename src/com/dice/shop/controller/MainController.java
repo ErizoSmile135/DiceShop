@@ -105,7 +105,7 @@ public class MainController {
                         );
                         break;
                     case "0":
-                        showClientMenu();
+                        showUserMenu();
                         break;
                     default:
                         System.out.println("Неверный выбор");
@@ -166,7 +166,7 @@ public class MainController {
                         );
                         break;
                     case "0":
-                        showClientMenu();
+                        showUserMenu();
                         break;
                     default:
                         System.out.println("Неверный выбор");

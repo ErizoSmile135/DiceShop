@@ -74,6 +74,7 @@ public class GoodService {
                         good.getCategory() == category &&
                                 good.getPrice() >= minPrice &&
                                 good.getPrice() <= maxPrice)
+                .sorted(Comparator.comparing(Good::getPrice))       //наверное имеется в виду полноценная кнопка для сортировки... Но я в фильтре ее добавил. Как пример?
                 .toList();
     }
 
