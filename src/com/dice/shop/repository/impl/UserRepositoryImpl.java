@@ -5,6 +5,7 @@ import com.dice.shop.repository.UserRepository;
 import com.dice.shop.util.SerializationUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class UserRepositoryImpl implements UserRepository {
 
@@ -19,11 +20,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> findAll() {
-        try {
-            return (List<User>) SerializationUtil.deserialize(FILE_PATH);
-        } catch (RuntimeException e) {
+        List<User> users = SerializationUtil.deserialize(FILE_PATH);
+        if (users == null) {
             return new ArrayList<>();
         }
+        return users;
     }
 
     @Override
@@ -39,7 +40,8 @@ public class UserRepositoryImpl implements UserRepository {
     public User findByLogin(String login) {
         return findAll()
                 .stream()
-                .filter(user -> user.getLogin().equals(login))
+                .filter(user ->
+                        Objects.equals(user.getLogin(), login))
                 .findFirst()
                 .orElse(null);
     }

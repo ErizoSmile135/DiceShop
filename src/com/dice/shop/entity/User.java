@@ -1,10 +1,14 @@
 package com.dice.shop.entity;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class User implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 6500537641387172579L;
 
     private Long id;
     private String login;
@@ -94,6 +98,13 @@ public class User implements Serializable {
                 ", birthDate=" + birthDate +
                 ", role=" + role +
                 '}';
+        //Для красоты можно было бы, но решил оставить для наглядности стандартный вид. И в консоли удобнее списком, чем столбцы
+        /*return "id: " + id +
+                "\nlogin: " + login +
+                "\nfirstname: " + firstname +
+                "\nlastname: " + lastname +
+                "\nbirthDate: " + birthDate +
+                "\nrole: " + role;*/
     }
 
     @Override
